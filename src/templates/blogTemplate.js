@@ -17,7 +17,6 @@ export default function Template({
       </Helmet>
       <div className="blog-post-container">
         <article className="post">
-          
           {!frontmatter.thumbnail && (
             <div className="post-thumbnail">
               <h1 className="post-title">{frontmatter.title}</h1>
@@ -30,7 +29,7 @@ export default function Template({
               <div className="post-meta">{frontmatter.date}</div>
             </div>
           )}
-          <div
+          <div 
             className="blog-post-content"
             dangerouslySetInnerHTML={{ __html: html }}
           />

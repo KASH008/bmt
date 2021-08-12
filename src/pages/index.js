@@ -20,14 +20,12 @@ const IndexPage = ({
     <Layout>
       <Helmet>
         <title>{site.siteMetadata.title}</title>
-         <meta charset="UTF-8"/>
+        <meta charset="UTF-8"/>
         <meta name="description" content={site.siteMetadata.description} />
         <meta name="keywords" content={site.siteMetadata.keywords}/>
         <meta name="author" content={site.siteMetadata.author}/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <script data-ad-client="ca-pub-9428197784618612" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-      </Helmet>
-      <HeroHeader/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>      </Helmet>
+      <HeroHeader/>  
       {<h2 className="all-about-bmws"
       >All About BMWs &darr;</h2>}
       <div className="grids">
@@ -46,7 +44,7 @@ export const pageQuery = graphql`
         description
       }
     }
-    allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
+    allMarkdownRemark(sort: {order: DESC, fields: [frontmatter___date]}, filter: {fileAbsolutePath: {regex: "/(blog)/"}}) {
       edges {
         node {
           id
