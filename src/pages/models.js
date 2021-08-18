@@ -19,13 +19,11 @@ const ModelsPage = ({
   return (
     <Layout>
       <Helmet>
-        <title>{site.siteMetadata.title}</title>
-         <meta charset="UTF-8"/>
-        <meta name="description" content={site.siteMetadata.description} />
-        <meta name="keywords" content={site.siteMetadata.keywords}/>
-        <meta name="author" content={site.siteMetadata.author}/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        
+        <title>{site.siteMetadata.models.title}</title>
+        <meta charset="UTF-8"/>
+        <meta name="description" content={site.siteMetadata.models.description} />
+        <meta name="keywords" content={site.siteMetadata.models.keywords}/>
+        <meta name="author" content={site.siteMetadata.author}/>        
         <script type="text/javascript">
 amzn_assoc_tracking_id = "bmwemt-20";
 amzn_assoc_ad_mode = "manual";
@@ -73,9 +71,14 @@ export const pageQuery = graphql`
   query modelsPageQuery {
     site {
       siteMetadata {
-        title
-        description
-      }
+          title
+          author
+          models {
+            description
+            keywords
+            title
+          }
+        }
     }
     allMarkdownRemark(sort: {order: DESC, fields: [frontmatter___date]}, filter: {fileAbsolutePath: {regex: "/(models)/"}}) {
       edges {
